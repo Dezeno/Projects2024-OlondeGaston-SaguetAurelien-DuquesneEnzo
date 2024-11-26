@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BallMovement : MonoBehaviour
 {
+    public GameManager gameManager;
     private bool leftDirection = false; // true = ball is moving left, false = ball is moving right
     private float speed = 10.0f;
     private float randomY;
@@ -34,6 +35,13 @@ public class BallMovement : MonoBehaviour
         }
     }
 
+    // private void ResetBall()
+    // {
+    //     randomY = Random.Range(-10.0f, 10.0f);
+    //     ballRb.velocity = new Vector2(0, randomY);
+    //     transform.position = new Vector2(0, 0);
+    // }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -47,6 +55,17 @@ public class BallMovement : MonoBehaviour
         {
             randomY = -randomY;
             ballRb.velocity = new Vector2(ballRb.velocity.x, randomY);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        ScoreZone scoreZone = collision.GetComponent<ScoreZone>();  
+        if(scoreZone)
+        {
+            gameManager.OnScoreZoneReached(scoreZone.id);
+            // ResetBall();
+
         }
     }
 }
