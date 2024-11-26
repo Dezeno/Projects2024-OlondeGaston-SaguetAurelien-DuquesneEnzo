@@ -5,7 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int scorePlayer1, scorePlayer2;
-    public ScoreText scoreTextLeft, scoreTextRight;
+    [SerializeField] private ScoreText ScoreTextLeft;
+    [SerializeField] private ScoreText ScoreTextRight;
+    public int maxScore = 10;
 
     public void OnScoreZoneReached(int id)
     {
@@ -22,7 +24,33 @@ public class GameManager : MonoBehaviour
 
     private void UpdateScores()
     {
-        scoreTextLeft.SetScore(scorePlayer1);
-        scoreTextRight.SetScore(scorePlayer2);
+        if (ScoreTextLeft != null)
+        {
+            ScoreTextLeft.SetScore(scorePlayer1);
+        }
+        else
+        {
+            Debug.LogError("ScoreTextLeft is not assigned in the GameManager.");
+        }
+
+        if (ScoreTextRight != null)
+        {
+            ScoreTextRight.SetScore(scorePlayer2);
+        }
+        else
+        {
+            Debug.LogError("ScoreTextRight is not assigned in the GameManager.");
+        }
     }
+
+    private void CheckWin()
+    {
+        int winnerId = scorePlayer1 == maxScore ? 1 : scorePlayer2 == maxScore ? 2 : 0;
+
+        if (winnerId != 0)
+        {
+            // Someone has won
+        }
+    }
+
 }
