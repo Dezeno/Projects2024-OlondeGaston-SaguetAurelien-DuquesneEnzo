@@ -4,26 +4,37 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] KeyCode upInput;
-    [SerializeField] KeyCode downInput;
-    private float speed = 0.3f;
+    public Rigidbody2D rd2d;
+    public float id; 
+    public float moveSpeed = 5f;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
+        float movement = ProcessInput();
+        Move(movement);
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private float ProcessInput()
     {
-        if(Input.GetKey(upInput))
+        float movement = 0f;
+        switch (id)
         {
-            transform.Translate(Vector2.up * speed);
+            case 1:
+                movement = Input.GetAxis("MovePlayer1");
+                break;
+            case 2:
+                movement = Input.GetAxis("MovePlayer2");
+                break;
         }
-        if (Input.GetKey(downInput))
-        {
-            transform.Translate(Vector2.down * speed);
-        }
+
+        return movement;
     }
+
+    private void Move(float movement)
+    {
+        Vector2 velo = rd2d.velocity;
+        velo.y = moveSpeed * movement;
+        rd2d.velocity = velo;
+    }
+
 }
