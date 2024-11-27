@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
             scorePlayer2++;
         }
         UpdateScores();
+        CheckWin();
     }
 
     private void UpdateScores()
@@ -49,7 +51,8 @@ public class GameManager : MonoBehaviour
 
         if (winnerId != 0)
         {
-            // Someone has won
+            Debug.Log("Player " + winnerId + " wins!");
+            SceneManager.LoadScene("WinnerScreen");
         }
     }
 
