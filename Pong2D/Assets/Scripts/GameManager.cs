@@ -1,13 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
     public int scorePlayer1, scorePlayer2;
-    [SerializeField] private ScoreText ScoreTextLeft;
-    [SerializeField] private ScoreText ScoreTextRight;
+    [SerializeField] private ScoreText scoreTextLeft;
+    [SerializeField] private ScoreText scoreTextRight;
+    [SerializeField] private TextMeshProUGUI playerWin;
+    [SerializeField] private TextMeshProUGUI points;
+    public GameObject winnerScreen;
+    public GameObject background;
+    public GameObject entities;
+    public GameObject score;
     public int maxScore = 10;
 
     public void OnScoreZoneReached(int id)
@@ -26,18 +34,18 @@ public class GameManager : MonoBehaviour
 
     private void UpdateScores()
     {
-        if (ScoreTextLeft != null)
+        if (scoreTextLeft != null)
         {
-            ScoreTextLeft.SetScore(scorePlayer1);
+            scoreTextLeft.SetScore(scorePlayer1);
         }
         else
         {
             Debug.LogError("ScoreTextLeft is not assigned in the GameManager.");
         }
 
-        if (ScoreTextRight != null)
+        if (scoreTextRight != null)
         {
-            ScoreTextRight.SetScore(scorePlayer2);
+            scoreTextRight.SetScore(scorePlayer2);
         }
         else
         {
@@ -51,9 +59,15 @@ public class GameManager : MonoBehaviour
 
         if (winnerId != 0)
         {
+            playerWin.text = "Player " + winnerId + " wins!";
+            points.text = "Score : " + scorePlayer1 + " - " + scorePlayer2;
+
+            winnerScreen.SetActive(true);
+            background.SetActive(false);
+            entities.SetActive(false);
+            score.SetActive(false);
+
             Debug.Log("Player " + winnerId + " wins!");
-            SceneManager.LoadScene("WinnerScreen");
         }
     }
-
 }
