@@ -38,6 +38,7 @@ public class BallMovement : MonoBehaviour
     private void ResetBall()
     {
         randomY = Random.Range(-10.0f, 10.0f);
+        leftDirection = !leftDirection;
         ballRb.velocity = new Vector2(0, randomY);
         transform.position = new Vector2(0, 0);
     }
