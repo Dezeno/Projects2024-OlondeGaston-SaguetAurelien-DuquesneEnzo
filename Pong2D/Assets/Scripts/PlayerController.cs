@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Récupère le mouvement du joueur en fonction de son ID
+    /// Rï¿½cupï¿½re le mouvement du joueur en fonction de son ID
     /// </summary>
     /// <returns>float contenant la valeur du mouvement du joueur</returns>
     private float ProcessInput()
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Déplace le joueur en fonction de la valeur de mouvement
+    /// Dï¿½place le joueur en fonction de la valeur de mouvement
     /// </summary>
     /// <param name="p_movement">valeur de mouvement</param>
     private void Move(float p_movement)

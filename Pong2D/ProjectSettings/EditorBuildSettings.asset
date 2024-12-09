@@ -9,9 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Game.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+<<<<<<< Updated upstream
     path: Assets/Scenes/Main Menu.unity
     guid: 199f0b252c53d5043ba148b11882b637
   - enabled: 1
     path: Assets/Scenes/WinnerScreen.unity
     guid: dd9d5d6703af94e32827aa8136f305cf
+=======
+    path: Assets/Scenes/WinnerScreen.unity
+    guid: dd9d5d6703af94e32827aa8136f305cf
+  - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: 199f0b252c53d5043ba148b11882b637
+>>>>>>> Stashed changes
   m_configObjects: {}
