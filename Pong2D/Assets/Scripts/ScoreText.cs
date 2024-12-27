@@ -1,14 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class ScoreText : MonoBehaviour
 {
-    public TextMeshProUGUI text;
+    public TextMeshProUGUI m_text;
 
-    public void SetScore(int score)
+    /// <summary>
+    /// Met à jour le score affiché.
+    /// </summary>
+    /// <param name="p_score">valeur du score</param>
+    public void SetScore(int p_score)
     {
-        text.text = score.ToString();
+        m_text.text = p_score.ToString();
     }
 }
