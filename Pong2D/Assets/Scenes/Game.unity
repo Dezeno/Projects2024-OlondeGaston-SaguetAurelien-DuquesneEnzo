@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d208905ddbf4ecfba8c1f6ae753c74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 2
+  m_id: 1
 --- !u!61 &164092039
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -513,9 +513,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e4afe6a2b4e0f44bff2b1d88e4c5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rd2d: {fileID: 260491939}
-  id: 1
-  moveSpeed: 15
+  m_rd2d: {fileID: 260491939}
+  m_id: 1
+  m_moveSpeed: 10
 --- !u!61 &260491938
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1532,9 +1532,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03e4afe6a2b4e0f44bff2b1d88e4c5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rd2d: {fileID: 678614981}
-  id: 2
-  moveSpeed: 15
+  m_rd2d: {fileID: 678614981}
+  m_id: 2
+  m_moveSpeed: 10
 --- !u!1 &684351550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1951,7 +1951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a45aae03f574dcb831187377edc3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 747741905}
+  m_text: {fileID: 747741905}
 --- !u!1 &750393288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2211,7 +2211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d208905ddbf4ecfba8c1f6ae753c74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 1
+  m_id: 2
 --- !u!61 &846410009
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2700,7 +2700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a45aae03f574dcb831187377edc3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 1115112520}
+  m_text: {fileID: 1115112520}
 --- !u!1 &1273287333
 GameObject:
   m_ObjectHideFlags: 0
@@ -3051,7 +3051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d15b0f9398b6abe4e824e436dfbee6c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1875367959}
+  m_gameManager: {fileID: 1875367959}
 --- !u!61 &1316547161
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3983,17 +3983,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0712df4f14da747cfa88bd360a9eb034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scorePlayer1: 0
-  scorePlayer2: 0
-  scoreTextLeft: {fileID: 1115112522}
-  scoreTextRight: {fileID: 747741907}
-  playerWin: {fileID: 684351552}
-  points: {fileID: 1957956458}
-  winnerScreen: {fileID: 647358120}
-  background: {fileID: 8113093}
-  entities: {fileID: 858477921}
-  score: {fileID: 1618917498}
-  maxScore: 10
+  m_scorePlayer1: 0
+  m_scorePlayer2: 0
+  m_scoreTextLeft: {fileID: 1115112522}
+  m_scoreTextRight: {fileID: 747741907}
+  m_playerWin: {fileID: 684351552}
+  m_points: {fileID: 1957956458}
+  m_winnerScreen: {fileID: 647358120}
+  m_background: {fileID: 8113093}
+  m_entities: {fileID: 858477921}
+  m_score: {fileID: 1618917498}
+  m_maxScore: 10
 --- !u!4 &1875367960
 Transform:
   m_ObjectHideFlags: 0
