@@ -5,8 +5,7 @@
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "Scripts",
-        "Scenes",
-        ""
+        "Scenes"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

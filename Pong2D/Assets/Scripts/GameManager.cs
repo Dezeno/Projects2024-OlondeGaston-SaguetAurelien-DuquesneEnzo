@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
     public int m_maxScore = 10;
 
     /// <summary>
-    /// Appelé lorsqu'une zone de score est atteinte, met à jour les scores
-    /// selon l'id du joueur et vérifie si un joueur a gagné.
+    /// Appelï¿½ lorsqu'une zone de score est atteinte, met ï¿½ jour les scores
+    /// selon l'id du joueur et vï¿½rifie si un joueur a gagnï¿½.
     /// </summary>
     /// <param name="id"></param>
     public void OnScoreZoneReached(int p_id)
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Met à jour les scores des joueurs.
+    /// Met ï¿½ jour les scores des joueurs.
     /// </summary>
     private void UpdateScores()
     {
@@ -58,17 +58,17 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Vérifie si un joueur a gagné. Si c'est le cas,
-    /// affiche l'écran de victoire.
+    /// Vï¿½rifie si un joueur a gagnï¿½. Si c'est le cas,
+    /// affiche l'ï¿½cran de victoire.
     /// </summary>
     private void CheckWin()
     {
-        // Vérifie si un des joueurs a atteint le score maximum
+        // Vï¿½rifie si un des joueurs a atteint le score maximum
         int winnerId = m_scorePlayer1 == m_maxScore ? 1 : 
             m_scorePlayer2 == m_maxScore ? 2 : 0;
 
-        // Si c'est le cas, c'est-à-dire si winnerId est différent de 0,
-        // alors on affiche l'écran de victoire
+        // Si c'est le cas, c'est-ï¿½-dire si winnerId est diffï¿½rent de 0,
+        // alors on affiche l'ï¿½cran de victoire
         if (winnerId != 0)
         {
             m_playerWin.text = "Player " + winnerId + " wins!";

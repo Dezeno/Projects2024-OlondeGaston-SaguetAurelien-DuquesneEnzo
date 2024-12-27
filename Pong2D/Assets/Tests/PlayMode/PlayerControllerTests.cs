@@ -1,29 +1,34 @@
+using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using UnityEngine.TestTools;
 
 public class PlayerControllerTests
 {
     private PlayerController _playerController;
     private GameObject _player1;
 
-    [SetUp]
-    public void SetUp()
+    [UnitySetUp]
+    public IEnumerator SetUp()
     {
-        // Create a GameObject and attach PlayerController to it
-        GameObject gameObject = new GameObject();
-        _playerController = gameObject.AddComponent<PlayerController>();
-        _player1 = GameObject.Find("Player1");
+        SceneManager.LoadScene("Game");
+        yield return null; // Wait for the scene to load
         
-        // Set the id to 1  
-        _playerController.id = 1;
+        // Create a GameObject and get the PlayerController component attached to it
+        _player1 = GameObject.Find("Player1");
+        _playerController = _player1.GetComponent(typeof(PlayerController)) as PlayerController;
     }
 
-    [Test]
-    public void ShouldMoveUp()
+    [UnityTest]
+    public IEnumerator ShouldMoveUp()
     {
-        float positionBefore = _player1.transform.position.y;
-        _playerController.Move(1f);
-        Assert.Greater(_player1.transform.position.y, positionBefore);
+        float velocityBefore = _playerController.rd2d.velocity.y;
+        _playerController.Move(5f);
+        yield return new WaitForSeconds(5);
+        
+        Debug.Log("before : " + velocityBefore);
+        Debug.Log("player : " + _playerController.rd2d.velocity.y);
+        Assert.Greater(_playerController.rd2d.velocity.y, velocityBefore);
     }
 }
