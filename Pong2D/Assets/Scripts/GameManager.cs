@@ -1,51 +1,55 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
-    public int scorePlayer1, scorePlayer2;
-    [SerializeField] private ScoreText scoreTextLeft;
-    [SerializeField] private ScoreText scoreTextRight;
-    [SerializeField] private TextMeshProUGUI playerWin;
-    [SerializeField] private TextMeshProUGUI points;
-    public GameObject winnerScreen;
-    public GameObject background;
-    public GameObject entities;
-    public GameObject score;
-    public int maxScore = 10;
+    public int m_scorePlayer1, m_scorePlayer2;
+    [SerializeField] private ScoreText m_scoreTextLeft;
+    [SerializeField] private ScoreText m_scoreTextRight;
+    [SerializeField] private TextMeshProUGUI m_playerWin;
+    [SerializeField] private TextMeshProUGUI m_points;
+    public GameObject m_winnerScreen;
+    public GameObject m_background;
+    public GameObject m_entities;
+    public GameObject m_score;
+    public int m_maxScore = 10;
 
-    public void OnScoreZoneReached(int id)
+    /// <summary>
+    /// Appelé lorsqu'une zone de score est atteinte, met à jour les scores
+    /// selon l'id du joueur et vérifie si un joueur a gagné.
+    /// </summary>
+    /// <param name="id"></param>
+    public void OnScoreZoneReached(int p_id)
     {
-        if (id == 1)
+        if (p_id == 1)
         {
-            scorePlayer1++;
+            m_scorePlayer1++;
         }
-        else if (id == 2)
+        else if (p_id == 2)
         {
-            scorePlayer2++;
+            m_scorePlayer2++;
         }
         UpdateScores();
         CheckWin();
     }
 
+    /// <summary>
+    /// Met à jour les scores des joueurs.
+    /// </summary>
     private void UpdateScores()
     {
-        if (scoreTextLeft != null)
+        if (m_scoreTextLeft != null)
         {
-            scoreTextLeft.SetScore(scorePlayer1);
+            m_scoreTextLeft.SetScore(m_scorePlayer1);
         }
         else
         {
             Debug.LogError("ScoreTextLeft is not assigned in the GameManager.");
         }
 
-        if (scoreTextRight != null)
+        if (m_scoreTextRight != null)
         {
-            scoreTextRight.SetScore(scorePlayer2);
+            m_scoreTextRight.SetScore(m_scorePlayer2);
         }
         else
         {
@@ -53,19 +57,28 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Vérifie si un joueur a gagné. Si c'est le cas,
+    /// affiche l'écran de victoire.
+    /// </summary>
     private void CheckWin()
     {
-        int winnerId = scorePlayer1 == maxScore ? 1 : scorePlayer2 == maxScore ? 2 : 0;
+        // Vérifie si un des joueurs a atteint le score maximum
+        int winnerId = m_scorePlayer1 == m_maxScore ? 1 : 
+            m_scorePlayer2 == m_maxScore ? 2 : 0;
 
+        // Si c'est le cas, c'est-à-dire si winnerId est différent de 0,
+        // alors on affiche l'écran de victoire
         if (winnerId != 0)
         {
-            playerWin.text = "Player " + winnerId + " wins!";
-            points.text = "Score : " + scorePlayer1 + " - " + scorePlayer2;
+            m_playerWin.text = "Player " + winnerId + " wins!";
+            m_points.text = "Score : " + m_scorePlayer1 + " - " 
+                + m_scorePlayer2;
 
-            winnerScreen.SetActive(true);
-            background.SetActive(false);
-            entities.SetActive(false);
-            score.SetActive(false);
+            m_winnerScreen.SetActive(true);
+            m_background.SetActive(false);
+            m_entities.SetActive(false);
+            m_score.SetActive(false);
 
             Debug.Log("Player " + winnerId + " wins!");
         }
