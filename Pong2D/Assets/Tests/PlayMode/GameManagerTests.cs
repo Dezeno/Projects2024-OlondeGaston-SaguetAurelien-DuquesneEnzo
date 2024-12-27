@@ -28,8 +28,8 @@ public class GameManagerTests
         yield return null;
 
         // Assert
-        Assert.AreEqual(1, _gameManager.scorePlayer1);
-        Assert.AreEqual(1, _gameManager.scorePlayer2);
+        Assert.AreEqual(1, _gameManager.m_scorePlayer1);
+        Assert.AreEqual(1, _gameManager.m_scorePlayer1);
         //mockScoreTextLeft.Verify(st => st.SetScore(1), Times.Once);
     }
 }

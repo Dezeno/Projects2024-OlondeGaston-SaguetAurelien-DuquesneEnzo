@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     /// D�place le joueur en fonction de la valeur de mouvement
     /// </summary>
     /// <param name="p_movement">valeur de mouvement</param>
-    private void Move(float p_movement)
+    public void Move(float p_movement)
     {
         Vector2 v_velocity = m_rd2d.velocity;
         v_velocity.y = m_moveSpeed * p_movement;
