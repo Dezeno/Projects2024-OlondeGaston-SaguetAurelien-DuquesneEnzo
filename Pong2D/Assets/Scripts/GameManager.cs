@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     /// V�rifie si un joueur a gagn�. Si c'est le cas,
     /// affiche l'�cran de victoire.
     /// </summary>
-    private void CheckWin()
+    public void CheckWin()
     {
         // V�rifie si un des joueurs a atteint le score maximum
         int winnerId = m_scorePlayer1 == m_maxScore ? 1 : 
