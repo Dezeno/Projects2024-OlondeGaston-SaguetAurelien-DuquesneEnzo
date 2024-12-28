@@ -23,6 +23,7 @@ public class PlayerControllerTests
     [UnityTest]
     public IEnumerator ShouldMoveUp()
     {
+        float positionBefore = _playerController.m_rd2d.position.y;
         _playerController.Move(5f);
         yield return new WaitForSeconds(5);
         
