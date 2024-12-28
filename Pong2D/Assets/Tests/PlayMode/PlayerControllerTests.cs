@@ -23,12 +23,13 @@ public class PlayerControllerTests
     [UnityTest]
     public IEnumerator ShouldMoveUp()
     {
-        float velocityBefore = _playerController.m_rd2d.velocity.y;
         _playerController.Move(5f);
         yield return new WaitForSeconds(5);
         
-        Debug.Log("before : " + velocityBefore);
-        Debug.Log("player : " + _playerController.m_rd2d.velocity.y);
-        Assert.Greater(_playerController.m_rd2d.velocity.y, velocityBefore);
+        yield return new WaitForSeconds(2);
+        
+        Debug.Log("before : " + positionBefore);
+        Debug.Log("player : " + _playerController.m_rd2d.position.y);
+        Assert.Greater(_playerController.m_rd2d.position.y, positionBefore);
     }
 }

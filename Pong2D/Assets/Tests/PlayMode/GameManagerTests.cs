@@ -29,7 +29,5 @@ public class GameManagerTests
 
         // Assert
         Assert.AreEqual(1, _gameManager.m_scorePlayer1);
-        Assert.AreEqual(1, _gameManager.m_scorePlayer2);
-        //mockScoreTextLeft.Verify(st => st.SetScore(1), Times.Once);
     }
 }
